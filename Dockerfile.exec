@@ -1,0 +1,37 @@
+# Dockerfile for cucumber test execution - SLA UI
+#
+# VERSION 0.2
+# AUTHOR  Ruifeng Ma (ruifengm@sg.ibm.com)
+# CREATED 2016-Jun-20
+# LAST MODIFIED 2017-Apr-24
+
+# This file defines a docker image that inherits from the ui-cucumber-base
+# image built through the default Dockerfile to add executional context
+# found within, in headless mode with a virtual display provided by Xvfb that can be viewed 
+# through a VNC session.
+
+# NOTE: if the base image referenced is built from the Dockerfile, ENV statements with the same variable 
+#       name should be removed from there as the environment variables persist in a docker image.
+
+# FROM sla-dtr.sby.ibm.com/dev-user/ui-cucumber-base:latest
+FROM gts-tia-sla-docker-local.artifactory.swg-devops.com/gts-tia-sdad-sla-core-dev/ui-cucumber-base:latest
+MAINTAINER Ruifeng Ma "ruifengm@sg.ibm.com"
+
+# Pass build arguments
+ARG APP_BUILD
+ARG TEST_PHASE
+
+# Check if the build argument has been set
+RUN if [ -z "$APP_BUILD" ]; then echo "APP_BUILD not set - ERROR"; exit 1; else : ; fi
+RUN if [ -z "$TEST_PHASE" ]; then echo "TEST_PHASE not set - ERROR"; exit 1; else : ; fi
+
+# Transfer args as env vars
+ENV APP_BUILD ${APP_BUILD}
+ENV TEST_PHASE ${TEST_PHASE}
+
+# Copy all cucumber project files (test scripts included) into the container
+COPY . /home/cobalt/cucumber
+
+# Start Xvfb, x11vnc, ssh services and run cucumber and report utils
+# CMD ["/bin/bash", "/home/cobalt/cucumber/startup.sh", "$APP_BUILD", "$TEST_PHASE"]
+CMD /bin/bash /home/cobalt/cucumber/startup.sh $APP_BUILD $TEST_PHASE

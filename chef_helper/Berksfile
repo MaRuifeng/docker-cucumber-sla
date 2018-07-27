@@ -1,0 +1,44 @@
+# This Berksfile helps resolve dependencies of all cookbooks listed in this Chef helper.
+#
+# Author: ruifengm@sg.ibm.com
+# Date: 07-Mar-2017
+
+
+source "https://supermarket.chef.io"
+
+# [Chef Doc] The metadata keyword causes Berkshelf to process the local cookbook metadata.
+# [Chef Doc] The Berksfile needs to be placed in the root of the cookbook, next to metadata.rb when used.
+# metadata
+
+# ============= Community Cookbooks ============= #
+# [Chef Doc] The cookbook keyword defines where a cookbook is installed from, or to set additional version constraints.
+cookbook 'windows', '~> 2.1.1'
+cookbook 'ohai', '=4.2.3'
+
+# ============= Custom Cookbooks ============= #
+# The Berksfile should be placed alongside the cookbooks folder
+# List out all cookbooks for Berkshelf to manage and check dependencies
+Dir[File.expand_path('../cookbooks/*', __FILE__)].each do |path|
+  File.directory?(path) ? cookbook(File.basename(path), path: path) : nil
+end
+
+# [Chef Doc] Adding cookbooks to a group is useful should you wish to exclude certain cookbooks from upload or vendoring.
+# Cookbooks which can be exempted from Berks check
+group :exempt do
+  # cookbook "logrotate"
+  # cookbook "poise"
+  # cookbook "sudo"
+  # cookbook "windows"
+  # cookbook "yum"
+end
+
+
+# All custom cookbooks should be added to this array to get the dependencies resolved by Berkshelf
+# my_cookbooks = Array.new
+# my_cookbooks.push('windows_paging_file')
+# my_cookbooks.push('windows_task_schedule')
+# Resolving dependencies
+# my_cookbooks.each do |cookbook_name|
+# 	cookbook cookbook_name, path: 'cookbooks/' + cookbook_name
+# end
+

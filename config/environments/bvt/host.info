@@ -1,0 +1,7 @@
+# Host/IP pairs that will be exported to the /ect/hosts file of the cucumber docker container.
+# BPM, EE and Chef servers are required.
+# Remember to put the BPM hostname as well, which might be different from the server hostname.
+
+10.91.201.165     sla-bvt-bpm-sjc01.sdad.sl.dst.ibm.com
+10.91.201.178     sla-bvt-chef-sjc01.sdad.sl.dst.ibm.com
+10.91.201.186     sla-bvt-ee-sjc01.sdad.sl.dst.ibm.com

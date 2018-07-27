@@ -1,0 +1,7 @@
+windows1:
+  :days: "5"
+  :hours: "20"
+  :minutes: "10"
+  :error_days: "Days: Entered value is not in allowed range:0..29"
+  :error_hours: "Hours: Entered value is not in allowed range:0..23"
+  :error_minutes: "Minutes: Entered value is not in allowed range:0..59"

@@ -1,0 +1,183 @@
+job_info:
+  :task_name: "default"
+  :force: ""
+  :user: "SYSTEM"
+  :command: "cuke-test.cmd"
+  :cwd: "C:\\"             # directory to run the command
+  :run_level: "limited"
+  :frequency: "daily"
+  :freq_modifier_text: "1"
+  :start_day: "01/29/2016"
+  :start_time: "12:00"
+
+job_info_minute:
+  :task_name: "minute_job"
+  :force: ""
+  :user: "SYSTEM"
+  :command: "cuke-test.cmd"
+  :cwd: "D:\\"             # directory to run the command
+  :run_level: "highest"
+  :frequency: "minute"
+  :freq_modifier_text: "1"
+  :start_day: "03/29/2015"
+  :start_time: "00:00"
+
+job_info_once:
+  :task_name: "once_job"
+  :force: ""
+  :user: "SYSTEM"
+  :command: "cuke-test.cmd"
+  :cwd: "C:\\"             # directory to run the command
+  :run_level: "limited"
+  :frequency: "once"
+  # :frequency_modifier: 7
+  :start_day: "01/29/2016"
+  :start_time: "12:00"
+
+job_info_hourly:
+  :task_name: "hourly_job"
+  :force: ""
+  :user: "SYSTEM"
+  :command: "cuke-test.ps1"
+  :cwd: "C:\\"             # directory to run the command
+  :run_level: "limited"
+  :frequency: "hourly"
+  :freq_modifier_text: "23"
+  :start_day: "07/04/2016"
+  :start_time: "12:00"
+
+job_info_on_logon:
+  :task_name: "on_logon_job"
+  :force: ""
+  :user: "NT AUTHORITY\\LOCALSERVICE"
+  :command: "cuke-test.cmd"
+  :cwd: "C:\\"             # directory to run the command
+  :run_level: "limited"
+  :frequency: "on_logon"
+  # :frequency_modifier: 0
+  # :start_day: "01/29/2016"
+  # :start_time: "12:00"
+
+job_info_on_start:
+  :task_name: "on_start_job"
+  :force: ""
+  :user: "NT AUTHORITY\\NETWORKSERVICE"
+  :command: "cuke-test.cmd"
+  :cwd: "C:\\"             # directory to run the command
+  :run_level: "limited"
+  :frequency: "onstart"
+  # :frequency_modifier: 0
+  # :start_day: "01/29/2016"
+  # :start_time: "12:00"
+
+job_info_on_idle:
+  :task_name: "on_idle_job"
+  :force: ""
+  :user: "NT AUTHORITY\\SYSTEM"
+  :command: "cuke-test.cmd"
+  :cwd: "C:\\"             # directory to run the command
+  :run_level: "limited"
+  :frequency: "on_idle"
+  :idle_time: "200"
+  # :start_day: "01/29/2016"
+  # :start_time: "12:00"
+
+job_info_weekly:
+  :task_name: "weekly_job"
+  :force: ""
+  :user: "SYSTEM"
+  :command: "cuke-test.cmd"
+  :cwd: "C:\\"             # directory to run the command
+  :run_level: "limited"
+  :frequency: "weekly"
+  :freq_modifier_dd: "7"
+  :day: "THU"
+  # :month_list: [FEB,MAR,MAY,DEC]
+  :start_day: "01/29/2016"
+  :start_time: "12:00"
+
+job_info_monthly_same_day_specific_months:
+  :task_name: "monthly_same_day_specific_months_job"
+  :force: ""
+  :user: "SYSTEM"
+  :command: "cuke-test.cmd"
+  :cwd: "C:\\"             # directory to run the command
+  :run_level: "limited"
+  :frequency: "monthly, same day on specific months"
+  #:frequency_modifier: ""
+  :day: "28"
+  :month_list: ["FEB","MAR","DEC"]
+  :start_day: "01/29/2016"
+  :start_time: "12:00"
+
+job_info_monthly_same_week_same_weekday_specific_months:
+  :task_name: "monthly_same_week_same_weekday_specific_months_job"
+  :force: ""
+  :user: "SYSTEM"
+  :command: "cuke-test.cmd"
+  :cwd: "C:\\"             # directory to run the command
+  :run_level: "limited"
+  :frequency: "monthly, same week and weekday on specific months"
+  :freq_modifier_dd: "LAST"
+  :day: "WED"
+  :month_list: ["FEB","JUL","SEP"]
+  :start_day: "01/29/2016"
+  :start_time: "12:00"
+
+job_info_monthly_lastday_specific_months:
+  :task_name: "monthly_same_week_same_weekday_specific_months_job"
+  :force: ""
+  :user: "SYSTEM"
+  :command: "cuke-test.cmd"
+  :cwd: "C:\\"             # directory to run the command
+  :run_level: "limited"
+  :frequency: "monthly, last day on specific months"
+  :freq_modifier_dd: "LASTDAY"
+  :month_list: ["FEB","JUL","SEP"]
+  :start_day: "01/29/2016"
+  :start_time: "12:00"
+
+test_data:
+  :user: ["SYSTEM","NT AUTHORITY\\LOCALSERVICE","NT AUTHORITY\\NETWORKSERVICE","NT AUTHORITY\\SYSTEM"]
+  :month_list: ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"]
+  :start_day: ["01/01/2015","12/31/2020"]
+  :start_time: ["00:00","23:59"]
+  :cwd: ["C:\\","D:\\","E:\\"]
+  :run_level: [ "highest", "limited"]
+
+frequency:
+  weekly:
+    :day: ["MON","TUE","WED","THU","FRI","SAT","SUN"]
+    :freq_modifier_dd: ["1","22","52"]
+    :month_list: false
+  monthly, same day on specific months:
+    :day: ["1","16","31"]
+  monthly, same week and weekday on specific months:
+    :day: ["MON","TUE","WED","THU","FRI","SAT","SUN"]
+    :freq_modifier_dd: [ "FIRST", "SECOND", "THIRD", "FOURTH", "LAST" ]
+  monthly, last day on specific months:
+    :freq_modifier_dd: [ "LASTDAY" ]
+  on_idle:
+    :idle_time: ["1","500","999"]
+    :start_time: false
+    :start_day: false
+    :month_list: false
+  on_logon:
+    :start_time: false
+    :start_day: false
+    :month_list: false
+  onstart:
+    :start_time: false
+    :start_day: false
+    :month_list: false
+  once:
+    :month_list: false
+  daily:
+    :freq_modifier_text: ["1","100","365"]
+    :month_list: false
+  hourly:
+    :freq_modifier_text: ["1","15","23"]
+    :month_list: false
+  minute:
+    :freq_modifier_text: ["1","700","1439"]
+    :month_list: false

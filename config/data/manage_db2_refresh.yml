@@ -1,0 +1,50 @@
+# Data sets used by scenarios in the Manage DB2 Refresh feature
+
+# Initiated By: nikhilp@us.ibm.com
+# Date: 2017-May-31
+
+
+# [Dev Env] Data for DB2 Refresh (should be commented out during BVT)
+#	Data for Dev Dockerized goes here - Not updating since able to test on BVT directly
+
+
+# [BVT Env] Data for DB2 Refresh
+redhat1:
+  :importExport: "Import/Export"
+  :full_refresh: "Full DB Refresh"
+  :schema: "DB2INST1"
+  :table: "T294147"
+  :instance: "db2inst1"
+  :database: "D294147"
+  :source_instance: "db2inst1"
+  :source_db: "D294147"
+  :source_schema: "DB2INST1"
+  :source_table: "T294147"
+  :source_host: "sla-bvt-ep-redhat2-dal13.sdad.sl.dst.ibm.com"
+  :source_username: "db2inst1"
+  :source_backup_online: "Online"
+  :source_backup_offline: "Offline"
+  :source_backup_image_path: "/home/db2inst1/db2_backup"
+  :error_user_id: "*Please Enter Source User ID"
+  :error_table_name: "*Please Enter Source User ID"
+
+windows1:
+  :importExport: "Import/Export"
+  :full_refresh: "Full DB Refresh"
+  :schema: "AUTOMATE"
+  :table: "T294147"
+  :instance: "DB2"
+  :database: "D294147"
+  :source_instance: "DB2"
+  :source_db: "D294147"
+  :source_schema: "ADMINISTRATOR"
+  :source_table: "T294147"
+  :source_host: "sla-bvt-ep-win2.sdad.sl.dst.ibm.com"
+  :source_username: "automate"
+  :source_backup_online: "Online"
+  :source_backup_offline: "Offline"
+#  :source_backup_image_path: '\\SLA-BVT-EP-WIN2\Sample_data\export_T294147.txt'
+  :source_backup_image_path: '\\sla-bvt-ep-win2.sdad.sl.dst.ibm.com\DB2_D294147_Backup\export_T294147.txt'
+  :source_full_backup_image_path: '\\sla-bvt-ep-win2.sdad.sl.dst.ibm.com\DB2_D294147_Backup'
+  :error_user_id: "*Please Enter Source User ID"
+  :error_table_name: "*Please Enter Source User ID"

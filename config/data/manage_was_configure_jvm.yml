@@ -1,0 +1,55 @@
+# Data sets used by scenarios in the Manage WAS Configure Jvm feature
+
+# Initiated By: nikhilp@us.ibm.com
+# Date: 2017-July-02
+
+
+# [Dev Env] Data for DB2 Refresh (should be commented out during BVT)
+#redhat1:
+#  :product:	"IBM WebSphere Application Server Network Deployment"
+#  :product_action: "Websphere Profiles"
+#  :profile: "AppServer01"
+#  :profile_action: "Websphere App Servers"
+#  :server: "Server1"
+#  :server_action: "JVM Properties Configuration"
+#  :initial_heap_value: "100"
+#  :max_heap_value: "350"
+#  :invalid_initial_heap_value: "400"
+#  :invalid_max_heap_value: "10000"
+# 
+#windows3:
+#  :product:	"IBM WebSphere Application Server Network Deployment"
+#  :product_action: "Websphere Profiles"
+#  :profile: "AppSrv01"
+#  :profile_action: "Websphere App Servers"
+#  :server: "server1"
+#  :server_action: "JVM Properties Configuration"
+#  :initial_heap_value: "100"
+#  :max_heap_value: "350"
+#  :invalid_initial_heap_value: "4000"
+#  :invalid_max_heap_value: "10000"
+
+# [BVT Env] Data for DB2 Refresh
+redhat1:
+  :product:	"IBM WebSphere Application Server Network Deployment"
+  :product_action: "Websphere Profiles"
+  :profile: "AppServer01"
+  :profile_action: "Websphere App Servers"
+  :server: "Server1"
+  :server_action: "JVM Properties Configuration"
+  :initial_heap_value: "100"
+  :max_heap_value: "350"
+  :invalid_initial_heap_value: "400"
+  :invalid_max_heap_value: "10000"
+ 
+windows1:
+  :product:	"IBM WebSphere Application Server Network Deployment"
+  :product_action: "Websphere Profiles"
+  :profile: "AppSrv01"
+  :profile_action: "Websphere App Servers"
+  :server: "server1"
+  :server_action: "JVM Properties Configuration"
+  :initial_heap_value: "100"
+  :max_heap_value: "350"
+  :invalid_initial_heap_value: "4000"
+  :invalid_max_heap_value: "10000"

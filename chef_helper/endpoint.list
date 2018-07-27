@@ -1,0 +1,27 @@
+# List of CCSSD endpoint servers to be managed by the Chef helper
+# The columns are:
+# 
+# Server Hostname
+# IP Address (recognizable on the machine where the Cucumber container is running)
+# Platform (Windows, Linux, AIX etc.)
+# Username
+# Password or SSH key (to be managed by Chef-vault for security enhancement)
+#
+# Author: ruifengm@sg.ibm.com
+# Date: 08-Mar-2017
+
+# HOSTNAME                                     IP                   PLATFORM       USERNAME         PASSWORD/KEY        TEST_PHASE
+sla-bvt-ep-win1.sdad.sl.dst.ibm.com            10.186.30.164        windows        automate         C0mplex1ty          bvt
+sla-bvt-ep-win2.sdad.sl.dst.ibm.com            10.186.30.172        windows        automate         C0mplex1ty          bvt
+sla-bvt-ep-win3.sdad.sl.dst.ibm.com            10.91.201.63         windows        automate         C0mplex1ty          bvt
+sla-bvt-ep-redhat1-dal13.sdad.sl.dst.ibm.com   10.186.30.179        linux          automate         ~/cucumber/id_rsa   bvt
+sla-bvt-ep-redhat2-dal13.sdad.sl.dst.ibm.com   10.186.30.135        linux          automate         ~/cucumber/id_rsa   bvt
+sla-bvt-ep-redhat3-sg.sdad.sl.dst.ibm.com      10.91.201.124        linux          automate         ~/cucumber/id_rsa   bvt
+sjx64117ak.svl.ibm.com                         9.30.80.150          windows        automate         C0mplex1ty          ivt
+sjx64117am.svl.ibm.com                         9.30.80.152          windows        automate         C0mplex1ty          ivt
+sjx64117ab.svl.ibm.com                         9.30.80.15           linux          automate         ~/cucumber/id_rsa   ivt
+sjx64117al.svl.ibm.com                         9.30.80.151          linux          automate         ~/cucumber/id_rsa   ivt
+sjx64117ax.svl.ibm.com                         9.30.80.125          linux          automate         ~/cucumber/id_rsa   ivt
+sjx64117ah.svl.ibm.com                         9.30.80.128          linux          automate         ~/cucumber/id_rsa   ivt
+sjpwrbbrbk.svl.ibm.com                         9.30.121.9           aix            automate         ~/cucumber/id_rsa   ivt
+sjpwrbbrbl.svl.ibm.com                         9.30.121.10          aix            automate         ~/cucumber/id_rsa   ivt

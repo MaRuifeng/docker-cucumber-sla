@@ -1,0 +1,3 @@
+windows1:
+    :err_msg: "Select Auto Start Mode: This field is required"
+    :name: "CustomAppPool1"

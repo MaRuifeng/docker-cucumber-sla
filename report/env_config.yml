@@ -1,0 +1,168 @@
+######################################
+# <Cucumber Test Environment Configuration Settings>
+#   - CC&SSD Project
+#   - ruifengm@sg.ibm.com
+#   - 2016-Jul-14
+######################################
+
+<% result_dir = "#{Dir.home}/ccssd-test/#{ENV['APP_BUILD']}/#{ENV['TEST_PHASE']}/cucumber-result/ui" %>
+<% secure_dir = nil %>
+<% Find.find("#{Dir.home}") {|path| secure_dir =  path if path.match(/cucumber\/\.secure\z/)} %>
+dir_config:
+  :main_directory: <%= "#{Dir.home}/ccssd-test" %>
+  :result_directory: <%= "#{result_dir}" %>
+  :junit_directory: <%= "#{result_dir}/junit" %>
+  :output_xml_directory: <%= "#{result_dir}/junit/processed" %>
+  :log_directory: <%= "#{result_dir}/logs" %>
+  :report_directory: <%= "#{result_dir}/cuke-reports" %>
+
+
+######################################
+# <RTC Client Configuration Settings>
+#   - CC&SSD Project
+#   - ruifengm@sg.ibm.com
+#   - 2016-Jul-12
+######################################
+
+RTC_config:
+  :RepositoryURI: "https://ratsuite192.sby.ibm.com:9443/ccm"
+  :UserId: "bpmbuild@sg.ibm.com"
+  :Password: <%= File.read("#{secure_dir}/.ccssd_tester").gsub("\n","") %>
+  :ProjectArea: "Continuous Compliance (Change Management)"
+  :DevLineId: "program-timeline"
+  :Subscribers: ["xiexiong@sg.ibm.com"]
+
+# RTC Defect severity thresholds based on pass rate (must be in percentage format like 'xx.x%')
+# if less than BLOCKER_THRESHOLD ==> blocker
+# else if less than MAJOR_THRESHOLD ==> major
+# else if less than NORMAL_THRESHOLD ==> normal
+# else if less than MINOR_THRESHOLD ==> minor
+# else no defect is needed
+RTC_defect_threshold:
+  :blocker_threshold: "80%"
+  :major_threshold: "90%"
+  :normal_threshold: "95%"
+  :minor_threshold: "100%"
+
+# RTC work item attribute values
+RTC_work_item_attr:
+  :due_working_days: 5
+  :owner_default: "ruifengm@sg.ibm.com"
+  :owner_features-ui_baseline: "ruifengm@sg.ibm.com"
+  :owner_features-manage_ms_sql_script: "nikhilp@us.ibm.com"
+  :owner_features-manage_manage_oracle_db_reporting: "nikhilp@us.ibm.com"
+  :owner_features-manage_db2_refresh: "nikhilp@us.ibm.com"
+  :owner_features-manage_db2_table_privilege: "ajitkon@us.ibm.com"
+  :owner_features-manage_oracle_db_restore: "nikhilp@us.ibm.com"
+  :owner_features-manage_oracle_schema_datapump: "nikhilp@us.ibm.com"
+  :owner_features-manage_ms_sql_instance: "ajitkon@us.ibm.com"
+  :owner_features-manage_db2_tables: "savitad@us.ibm.com"
+  :owner_features-ms_sql_update_statistics: "nikhilp@us.ibm.com"
+  :owner_features-manage_was_error_log_cleanup: "nikhilp@us.ibm.com"
+  :owner_features-manage_was_operational_health_check: "nikhilp@us.ibm.com"
+  :owner_features-manage_was_configure_jvm: "nikhilp@us.ibm.com"
+  :owner_features-manage_dns_entries: "ajitkon@us.ibm.com"
+  :owner_features-manage_hostsfile_entries: "ajitkon@us.ibm.com"
+  :owner_features-manage_ms_sql_users: "nikhilp@us.ibm.com"
+  :owner_features-manage_oracle_db_refresh: "nikhilp@us.ibm.com"
+  :owner_features-manage_oracle_rac_node: "ajitkon@us.ibm.com"
+  :owner_features-manage_unix_user: "nikhilp@us.ibm.com"
+  :owner_features-manage_windows_ad_user: "ajitkon@us.ibm.com"
+  :owner_features-manage_ms_sql_logins: "nikhilp@us.ibm.com"
+  :owner_features-manage_restore_data_tsm: "ajitkon@us.ibm.com"
+  :owner_features-manage_oracle_db_backup: "akamath@us.ibm.com"
+  :owner_features-manage_iis_auto_start_app_pool: "harithtm@in.ibm.com"
+  :owner_features-manage_iis_change_framework_version: "harithtm@in.ibm.com"
+  :owner_features-manage_iis_configure_timeout_app_pool: "harithtm@in.ibm.com"
+  :owner_features-manage_iis_create_app_pool: "harithtm@in.ibm.com"
+  :owner_features-manage_iis_delete_app_pool: "harithtm@in.ibm.com"
+  :owner_features-manage_iis_enable_disable_worker_process_pinging: "harithtm@in.ibm.com"
+  :owner_features-manage_iis_rename_app_pool: "harithtm@in.ibm.com"
+  :owner_features-manage_iis_start_stop_app_pool: "harithtm@in.ibm.com"
+  :owner_features-server_compliance_check: "shantanu.dutta@in.ibm.com"
+  :owner_features-policy_management: "shantanu.dutta@in.ibm.com"
+  :owner_features-download_shared_file_api: "yurong@sg.ibm.com"
+  :owner_features-server_override: "shantanu.dutta@in.ibm.com"
+  :owner_features-manage_compliance_mode: "shantanu.dutta@in.ibm.com"
+  :owner_features-policy_management_policy_automation: "shantanu.dutta@in.ibm.com"
+  :owner_features-policy_management_comp_profile: "shantanu.dutta@in.ibm.com"
+  :owner_features-policy_management_env: "shantanu.dutta@in.ibm.com"
+
+#####################################
+# <RTC web client residing server settings>
+#   - CC&SSD Project
+#   - ruifengm@sg.ibm.com
+#   - 2016-Jul-12
+#####################################
+
+# REST API URLs
+RTC_client_api_url:
+  # :RTC_client_server: "http://10.0.2.2:9081" # localhost
+  # :RTC_client_server: "http://9.51.163.190:9081"
+  :RTC_client_server: "http://10.64.68.85:9081"
+  :RTC_REST_URL_syncTestSuites: "/RTCWebClient/v0.1/api/testResult/syncTestSuites"
+  :RTC_REST_URL_syncTestCases: "/RTCWebClient/v0.1/api/testResult/syncTestCases"
+  :RTC_REST_URL_syncAppBuilds: "/RTCWebClient/v0.1/api/testResult/syncAppBuilds"
+  :RTC_REST_URL_addTestResults: "/RTCWebClient/v0.1/api/testResult/addTestResults"
+  :RTC_REST_URL_syncBuildPassRate: "/RTCWebClient/v0.1/api/testResult/syncBuildPassRate"
+  :RTC_REST_URL_getLatestBuildTestResults: "/RTCWebClient/v0.1/api/testResult/getLatestBuildTestResults"
+  :RTC_REST_URL_getBuildPassRates: "/RTCWebClient/v0.1/api/testResult/getBuildPassRates"
+  :RTC_REST_URL_getBuildLatestTestResults: "/RTCWebClient/v0.1/api/testResult/getBuildLatestTestResults"
+
+  :RTC_REST_URL_syncRTCDefectStatus: "/RTCWebClient/v0.1/api/rtc/syncRTCDefectStatus"
+  :RTC_REST_URL_createTestAutoDefect: "/RTCWebClient/v0.1/api/rtc/createTestAutoDefect"
+  :RTC_REST_URL_updateTestAutoDefect: "/RTCWebClient/v0.1/api/rtc/updateTestAutoDefect"
+  :RTC_REST_URL_closeTestAutoDefect: "/RTCWebClient/v0.1/api/rtc/closeTestAutoDefect"
+  :RTC_REST_URL_getWorkItemStatus: "/RTCWebClient/v0.1/api/rtc/getWorkItemStatus"
+  :RTC_REST_URL_getOpenTestAutoDefect: "/RTCWebClient/v0.1/api/rtc/getOpenTestAutoDefect"
+  :RTC_REST_URL_getAllLatestRTCDefects: "/RTCWebClient/v0.1/api/rtc/getAllLatestRTCDefects"
+  :RTC_REST_URL_exitRTC: "/RTCWebClient/v0.1/api/rtc/exitRTC"
+
+
+#####################################
+# <Report Server Info for Uploading>
+#   - CC&SSD Project
+#   - ruifengm@sg.ibm.com
+#   - 2016-Aug-01
+#####################################
+
+# Report server
+report_server:
+  # :host: "9.51.163.190"
+  :host: "10.64.68.85"
+  :pub_ip: "9.51.163.190"
+  :user: "ftpadm"
+  :password: <%= File.read("#{secure_dir}/.report_ftpadm").gsub("\n","") %>
+  :port: 21
+
+
+#####################################
+# <SMTP Server Info for Email Notification>
+#   - CC&SSD Project
+#   - ruifengm@sg.ibm.com
+#   - 2016-Aug-26
+#####################################
+
+# SMTP server
+smtp_server:
+  :host: "smtp.sendgrid.net"
+  :port: "587"
+  # :auth_user: "apikey"
+  # :password: <%= File.read("#{secure_dir}/.email_ruifengm").gsub("\n","") %>
+  :auth_user: "msang@us.ibm.com"
+  :password: <%= File.read("#{secure_dir}/.email_msang").gsub("\n","") %>
+  :from_address: "bpmbuild@sg.ibm.com"
+
+
+#####################################
+# <Incoming Webhook for Slack Notification>
+#   - CC&SSD Project
+#   - ruifengm@sg.ibm.com
+#   - 2016-Aug-31
+#####################################
+
+# Slack
+slack:
+  # webhook URL sample: https://hooks.slack.com/services/<hash_string>/<hash_string>
+  :incoming_webhook: <%= File.read("#{secure_dir}/.slack_webhook_url").gsub("\n","") %>
+  :channel: "slacker"

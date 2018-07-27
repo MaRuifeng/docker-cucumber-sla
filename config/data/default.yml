@@ -1,0 +1,78 @@
+# Common data sets used across the cucumber project
+
+# Initiated By: ruifengm@sg.ibm.com
+# Date: 2017-Apr-20
+
+
+
+regex_string:
+  # Example format: "Apr 24, 2017 21:45 SGT"
+  :timestamp: '\A(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s*(0[1-9]|[12]?[0-9]|3[01]),\s*(20[1-9][0-9])\s(0[1-9]|1?[0-9]|2?[0-4])\:[0-5][0-9]\s*[A-Z]{3}'
+
+
+## [Dev Env] Endpoint server details
+sla-d-cms-ept.sdad.sl.dst.ibm.com:
+  :short_name: "sla-d-cms-ept"
+  :status: "Onboarded"
+  :memory: "2.00 GB"
+  :cpu_count: "2"
+  :cpu_type: "--"   # Not shown on the UI, need to fix
+  :platform: "windows"
+  # :last_refresh: "" # verified via regex
+
+sla-d-cms-eptrh7-sjc01.sdad.sl.dst.ibm.com:
+  :short_name: "sla-d-cms-eptrh7-sjc01"
+  :status: "Onboarded"
+  :memory: "987.00 MB"
+  :cpu_count: "1"
+  :cpu_type: "--"   # Not shown on the UI, need to fix
+  :platform: "redhat"
+  # :last_refresh: "" # verified via regex
+
+
+## [BVT Env] Endpoint server details
+
+sla-bvt-ep-win1.sdad.sl.dst.ibm.com:
+  :short_name: "sla-bvt-ep-win1"
+  :status: "Onboarded"
+  :memory: "16.00 GB"
+  :cpu_count: "4"
+  :cpu_type: "--"   # Not shown on the UI, need to fix
+  :platform: "windows"
+  # :last_refresh: "" # verified via regex
+
+sla-bvt-ep-win2.sdad.sl.dst.ibm.com:
+  :short_name: "sla-bvt-ep-win2"
+  :status: "Onboarded"
+  :memory: "4.00 GB"
+  :cpu_count: "4"
+  :cpu_type: "--"   # Not shown on the UI, need to fix
+  :platform: "windows"
+  # :last_refresh: "" # verified via regex
+
+sla-bvt-ep-win3.sdad.sl.dst.ibm.com:
+  :short_name: "sla-bvt-ep-win3"
+  :status: "Onboarded"
+  :memory: "4.00 GB"
+  :cpu_count: "4"
+  :cpu_type: "--"   # Not shown on the UI, need to fix
+  :platform: "windows"
+  # :last_refresh: "" # verified via regex
+
+sla-bvt-ep-redhat1-dal13.sdad.sl.dst.ibm.com:
+  :short_name: "sla-bvt-ep-redhat1-dal13"
+  :status: "Onboarded"
+  :memory: "15.51 GB"
+  :cpu_count: "4"
+  :cpu_type: "--"   # Not shown on the UI, need to fix
+  :platform: "redhat"
+  # :last_refresh: "" # verified via regex
+
+sla-bvt-ep-redhat2-dal13.sdad.sl.dst.ibm.com:
+  :short_name: "sla-bvt-ep-redhat2-dal13"
+  :status: "Onboarded"
+  :memory: "3.45 GB"
+  :cpu_count: "4"
+  :cpu_type: "--"   # Not shown on the UI, need to fix
+  :platform: "redhat"
+  # :last_refresh: "" # verified via regex

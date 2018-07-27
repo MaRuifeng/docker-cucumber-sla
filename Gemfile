@@ -1,0 +1,33 @@
+source 'https://rubygems.org'
+
+gem 'cucumber', '2.4.0'
+gem 'rspec', '3.5.0'
+gem 'rake', '11.2.2'
+gem 'page-object', '1.2.0'
+gem 'selenium-webdriver', '2.53.4' # compatible with firefox 46.0.1
+gem 'require_all', '1.3.3'
+gem 'activesupport', '5.0.0'
+gem 'faker', '1.6.6'
+gem 'data_magic', '0.22'
+gem 'hashie', '3.4.4'
+gem 'fig_newton', '0.12'
+gem 'parallel_tests', '2.7.0'
+gem 'headless', '2.2.3'
+gem 'rest-client', '2.0.0'
+gem 'nokogiri', '1.6.8'
+gem 'net-ssh', '2.9.3.beta1'
+gem 'net-ssh-telnet', '0.0.2'
+gem 'winrm', '2.1'
+gem 'winrm-fs', '1.0.1'
+gem 'knife-windows', '1.9.0'
+gem 'chef', '12.3.0'
+
+# gem 'pretty_face', '0.10.3'
+# gem 'database_cleaner', '1.5.3'
+# gem 'activerecord', '5.0.0'
+# gem 'pg', '0.18.4'
+# gem 'roo-xls', '1.0.0'
+
+
+# gem 'rautomation', '0.16.0'
+# gem 'rubyXL', '3.3.21'

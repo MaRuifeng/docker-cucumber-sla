@@ -1,0 +1,24 @@
+<% output_dir = "#{Dir.home}/cucumber_results" %>
+<% pretty_face_dir = "#{output_dir}/pretty_face" %>
+<% Dir.mkdir output_dir unless Dir.exist? output_dir %>
+<% Dir.mkdir pretty_face_dir unless Dir.exist? pretty_face_dir %>
+
+#### Dockerized cucumber (BVT, IVT etc.)
+# Dir structure needs to be set up in docker container before running cucumber
+<% result_dir = "#{Dir.home}/ccssd-test/#{ENV['APP_BUILD']}/#{ENV['TEST_PHASE']}/cucumber-result/ui" %>
+<% cuke_report_dir = "#{result_dir}/cuke-reports" %>
+<% junit_dir = "#{result_dir}/junit" %>
+<% FileUtils.mkdir_p cuke_report_dir unless Dir.exist? cuke_report_dir %>
+<% FileUtils.mkdir_p junit_dir unless Dir.exists? junit_dir %>
+#### Dockerized cucumber (BVT, IVT etc.)
+
+default: --no-source --color --format pretty --profile html_report --profile pretty_face
+html_report: --format progress --format html --out=<%= "#{output_dir}/results.html" %>
+junit_report: --format progress --format junit --out=<%= "#{output_dir}" %>
+# pretty_face: --format PrettyFace::Formatter::Html --out=<%= "#{pretty_face_dir}/index.html" %>
+nothing: --no-source --no-color --format pretty
+dev_parallel: FIG_NEWTON_FILE=dev/default.yml --no-source --no-color --format html --out <%="#{output_dir}/report#{ENV['TEST_ENV_NUMBER']}.html"%> --require features
+dev: FIG_NEWTON_FILE=dev/default.yml --no-source --no-color --format pretty --require features
+bvt: FIG_NEWTON_FILE=bvt/default.yml -r features DISPLAY=:99 HEADLESS=false --tags ~@wip --format progress --format SegmentedView::HtmlEach --out <%="#{cuke_report_dir}"%> --format junit -o <%="#{junit_dir}"%>
+bvt_parallel: FIG_NEWTON_FILE=bvt/default.yml --no-source --no-color --format html --out <%="#{output_dir}/report#{ENV['TEST_ENV_NUMBER']}.html"%> --format junit -o <%="#{output_dir}/junit"%> --require features
+ivt: FIG_NEWTON_FILE=ivt/default.yml -r features DISPLAY=:99 HEADLESS=false --tags ~@wip --format progress --format SegmentedView::HtmlEach --out <%="#{cuke_report_dir}"%> --format junit -o <%="#{junit_dir}"%>

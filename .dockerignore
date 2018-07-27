@@ -1,0 +1,5 @@
+# Ignore files not to be put into the docker build context
+
+cucumber_build_deploy_jenkins.sh
+Dockerfile
+Dockerfile.exec

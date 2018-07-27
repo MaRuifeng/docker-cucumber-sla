@@ -1,0 +1,43 @@
+# Data sets used by scenarios in the Manage Oracle Schema Datapump feature
+
+# Initiated By: nikhilp@us.ibm.com
+# Date: 2017-June-02
+
+
+# [BVT Env] Manage Oracle Schema Datapump
+redhat1:
+  :instance: "orcl11g"
+  :data_pump_export_tool: "Datapump Export(expdp)"
+  :data_pump_import_tool: "Datapump Import(impdp)"
+  :schema: "SYS"
+  :data_pump_dir: "SYS:DATA_PUMP_DIR:/u01/app/oracle/admin/orcl11g/dpdump/"
+  :image_name: "testdb01_20170515.dmp"
+  :log_name: "testdb01_20170515.log"
+
+windows2:
+  :instance: "ORCL"
+  :data_pump_export_tool: "Datapump Export(expdp)"
+  :data_pump_import_tool: "Datapump Import(impdp)"
+  :schema: "SYS"
+  :data_pump_dir: "SYS:DATA_PUMP_DIR" #appending ":C:\app\Administrator/admin/orcl/dpdump/" gave me this error - found unknown escape character while parsing a quoted scalar, so handling it with a regex match - Nikhil Patil
+  :image_name: "testdb01_20170515.dmp"
+  :log_name: "testdb01_20170515.log"
+
+# [Dev Env] Manage Oracle Schema Datapump (should be commented out during BVT)
+#redhat1:
+#  :instance: "orcl11g"
+#  :data_pump_export_tool: "Datapump Export(expdp)"
+#  :data_pump_import_tool: "Datapump Import(impdp)"
+#  :schema: "SYS"
+#  :data_pump_dir: "SYS:DATA_PUMP_DIR:/u01/app/oracle/admin/orcl11g/dpdump/"
+#  :image_name: "testdb01_20170515.dmp"
+#  :log_name: "testdb01_20170515.log"
+#
+#windows2:
+#  :instance: "ORCL"
+#  :data_pump_export_tool: "Datapump Export(expdp)"
+#  :data_pump_import_tool: "Datapump Import(impdp)"
+#  :schema: "SYS"
+#  :data_pump_dir: "SYS:DATA_PUMP_DIR" #appending ":C:\app\Administrator/admin/orcl/dpdump/" gave me this error - found unknown escape character while parsing a quoted scalar, so handling it with a regex match - Nikhil Patil
+#  :image_name: "testdb01_20170515.dmp"
+#  :log_name: "testdb01_20170515.log"

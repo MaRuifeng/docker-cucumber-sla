@@ -1,0 +1,140 @@
+# ========== Login Properties ========== #
+login:
+  username: <%= ENV["IBM_INTRANET_ID"] %>
+  password: <%= File.read("#{Dir.home}/.secure/.ibm_ldap").gsub("\n","") %>
+accountsecurityfocal_login:
+  :username: "-057RB897@tst.ibm.com"
+  :password: <%= File.read("./.secure/.ibm_accountsecurityfocal").gsub("\n","") %>
+  :name: "AccountSecurityFocal"
+  :email: "-057RB897@tst.ibm.com"
+  :id: "-057RB897"
+  :groups: "ssd_entitlement,cc_entitlement,cc_console_entitlement,general_user,account_security_focal"
+  :roles: "ssd_entitlement,cc_entitlement,cc_console_entitlement,general_user,account_security_focal"
+admin_login:
+  :username: "-057MO897@tst.ibm.com"
+  :password: <%= File.read("./.secure/.ibm_serverowner").gsub("\n","") %>
+  # :name: "Admin SLA"
+  :name: " "
+  :email: "-057MO897@tst.ibm.com"
+  :id: "-057MO897"
+  :groups: "sscm_system_admin,ssd_entitlement"
+  :roles: "role_admin,system_admin,requester,ssd_entitlement"
+requester_login:
+  :username: "-057SM897@tst.ibm.com"
+  :password: <%= File.read("./.secure/.ibm_requester").gsub("\n","") %>
+  :name: "Requester SLA"
+  :email: "-057SM897@tst.ibm.com"
+  :id: "-057SM897"
+  :groups: "sscm_system_admin,requester,ssd_entitlement"
+  :roles: "role_admin,system_admin,general_user,requester,ssd_entitlement"
+serverowner_login:
+  :username: "-057LS897@tst.ibm.com"
+  :password: <%= File.read("./.secure/.ibm_serverowner").gsub("\n","") %>
+  :name: "Server Owner"
+  :email: "-057LS897@tst.ibm.com"
+  :id: "-057LS897"
+  :groups: "sscm_server_owner,sscm_general_user"
+  :roles: "cc_server_owner, general_user"
+executor_login:
+  :username: "-057LC897@tst.ibm.com"
+  :password: <%= File.read("./.secure/.ibm_executor").gsub("\n","") %>
+  :name: "Executor SLA"
+  :email: "-057LC897@tst.ibm.com"
+  :id: "-057LC897"
+  :groups: "sscm_system_admin,executor,ssd_entitlement"
+  :roles: "role_admin,system_admin,general_user,executor,ssd_entitlement"
+approver_login:
+  :username: "-057LD897@tst.ibm.com"
+  :password: <%= File.read("./.secure/.ibm_approver").gsub("\n","") %>
+  :name: "Approver SLA"
+  :email: "-057LD897@tst.ibm.com"
+  :id: "-057LD897"
+  :groups: "sscm_system_admin,approver,ssd_entitlement"
+  :roles: "role_admin,system_admin,general_user,approver,ssd_entitlement"
+onboarder_login:
+  :username: "-057LE897@tst.ibm.com"
+  :password: <%= File.read("./.secure/.ibm_onboarder").gsub("\n","") %>
+  :name: "Onboarder SLA"
+  :email: "-057LE897@tst.ibm.com"
+  :id: "-057LE897"
+  :groups: "sscm_system_admin,onboarder,ssd_entitlement"
+  :roles: "role_admin,system_admin,onboarder,general_user,ssd_entitlement"
+capacityapprover_login:
+  :username: "-056XI897@tst.ibm.com"
+  :password: <%= File.read("./.secure/.ibm_cap_approver").gsub("\n","") %>
+technicalapprover_login:
+  :username: "-0578I897@tst.ibm.com"
+  :password: <%= File.read("./.secure/.ibm_tech_approver").gsub("\n","") %>
+insufficient_access_user_login:
+  :username: "-057LF897@tst.ibm.com"
+  :password: <%= File.read("./.secure/.ibm_bad_user").gsub("\n","") %>
+faker_login:
+  :username: <%= Faker::Internet.email %>
+  :password: <%= Faker::Internet.password %>
+empty_login:
+  :username: ""
+  :password: ""
+wrong_password_login:
+  :username: "-056VJ897@tst.ibm.com"
+  :password: <%= Faker::Internet.password %>  # what are odds to be correct?
+# ========== Login Properties ========== #
+
+# ========== Test Config Properties ========== #
+environment: dev
+browser: chrome
+
+download_directory: <%= "#{Dir.home}/cucumber_file_download" %>
+results_directory: <%= "#{Dir.home}/cucumber_results" %>
+log_directory: <%= "#{Dir.home}/cucumber_results/logs" %>
+screenshot_directory: <%= "#{Dir.home}/cucumber_results/screenshots" %>
+
+# base_url: https://sla-d-cms-bpm-sjc01.sdad.sl.dst.ibm.com:9000/slaui
+# base_url: https://10.91.118.187:9000/slaui # Workaround to bypass the page loading problem in Defect 276193
+base_url: https://9.51.160.27:9000/slaui # used locally when DNS not configured to resolve hostname
+#base_url: https://localhost:8443/slaui
+bpm_base_url: https://sla-d-cms-bpm-sjc01.sdad.sl.dst.ibm.com/slabpm/ProcessPortal
+
+ee_url: https://sla-d-cms-ee-sjc01.sdad.sl.dst.ibm.com:3333
+cobalt_ee_secret_key: <%= File.read("./.secure/.ee_secret").gsub("\n","") %>
+
+# ========== Test Config Properties ========== #
+
+
+# ========== Endpoint Servers ========== #
+windows1_server:
+  :server_name: "sla-d-cms-ept.sdad.sl.dst.ibm.com"
+  :ip: "10.91.118.204"
+  :username: "automate"
+  :password: <%= File.read("./.secure/.windows_edpt_admin").gsub("\n","") %>
+  :platform: "windows"
+windows2_server:
+  :server_name: "ssd-sg-win-03.sdad.sl.dst.ibm.com"
+  :ip: "10.106.59.170"
+  :platform: "windows"
+windows3_server:
+  :server_name: "ssd-win1-dev.sdad.sl.dst.ibm.com"
+  :ip: "9.51.161.107"
+  :platform: "windows"
+redhat1_server:
+  :server_name: "sla-d-cms-eptrh7-sjc01.sdad.sl.dst.ibm.com"
+  :ip: "10.91.118.195"
+  :platform: "redhat"
+redhat2_server:
+  :server_name: "sg.sdad.sl.dst.ibm.com"
+  :ip: "10.91.201.102"
+  :platform: "redhat"
+redhat3_server:
+  :server_name: "ssd-rac2-dev.sdad.sl.dst.ibm.com"
+  :ip: "10.186.30.179"
+  :platform: "redhat"  
+linux-on-z_server:
+  # :server_name: "pending"
+aix-hmc_server:
+  # :server_name: "pending"
+suse_server:
+  # :server_name: "pending"
+aix_server:
+  # :server_name: "pending"
+select_server:
+  # :server_name: "pending"
+# ========== Endpoint Servers ========== #

@@ -1,0 +1,13 @@
+{
+  "id": "default-auto",
+  "task_name": "default-auto",
+  "command": "cuke-auto-test.cmd",
+  "cwd": "C:\\",
+  "user": "SYSTEM",
+  "run_level": "limited",
+  "force": "",
+  "frequency": "daily",
+  "frequency_modifier": 1,
+  "start_day": "01/29/2016",
+  "start_time": "11:00"
+}

@@ -1,0 +1,22 @@
+oracle_restore_control_file:
+  :recovery_item: "Control File" 
+  :restore_backup_path: "/tmp/backup/hot_bkp_TESTDB02"
+  :restore_custom_path: "/tmp"
+
+
+oracle_restore_sp_file:
+  :recovery_item: "Server Parameter File" 
+  :restore_backup_path: "/tmp/backup/hot_bkp_TESTDB02"
+  
+
+oracle_restore_database:
+  :recovery_item: "Database"
+  :recovery_type: "Full" 
+  :restore_backup_path: "/tmp/backup/hot_bkp_TESTDB02"
+  :restore_custom_path: "/tmp"
+  
+oracle_restore_arch_redo_logs:
+  :recovery_item: "Archived Redo Log"
+  :restore_backup_path: "/tmp/backup/hot_bkp_TESTDB02"
+  :start_seq: "1"
+  :end_seq: "100"

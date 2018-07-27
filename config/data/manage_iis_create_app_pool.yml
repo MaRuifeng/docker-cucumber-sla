@@ -1,0 +1,3 @@
+windows1:
+    :err_msg: "Appl Pool Name: This field is required"
+    :name: "CustomAppPool1"
